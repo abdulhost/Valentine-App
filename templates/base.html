@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Enchanted Storybook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body { background: url('https://www.transparenttextures.com/patterns/old-paper.png') repeat, linear-gradient(to bottom, #f5f5dc, #e6d9b8); font-family: 'Crimson Text', serif; color: #4a2c0a; }
+        .book-page { max-width: 800px; margin: 0 auto; padding: 40px; background: rgba(245, 245, 220, 0.95); border-radius: 10px; box-shadow: 0 0 30px rgba(0,0,0,0.3); position: relative; }
+        .book-page::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 2px solid #d4b483; border-radius: 10px; pointer-events: none; }
+        .script { font-family: 'Great Vibes', cursive; }
+        .typewriter { overflow: hidden; border-right: .15em solid #d4b483; white-space: nowrap; margin: 0 auto; letter-spacing: .15em; animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite; }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #d4b483; } }
+        .heart-float { animation: float 3s infinite ease-in-out; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .page-turn { transition: transform 0.5s; }
+        .page-turn:hover { transform: rotateY(-5deg); }
+    </style>
+    <script >
+// Typewriter (already CSS)
+// Heart highlight
+function highlightHeart(element) {
+    element.style.transition = 'all 0.3s';
+    element.style.filter = 'brightness(1.5) drop-shadow(0 0 10px #ff69b4)';
+    setTimeout(() => { element.style.filter = ''; }, 300);
+}
+
+// Confetti for quiz
+function confetti() {
+    // Simple CSS confetti or use canvas
+    alert('Yesss, babee! Confetti burst! 🎉');  // Placeholder – add real confetti lib if needed
+}
+
+// Auto-response prompt
+function autoRespond(input) {
+    if (input.value) {
+        alert("Aww, '" + input.value + "' was my guess too, sweetheart!");
+    }
+}
+
+// Bloom heart
+function bloomHeart() {
+    // CSS or simple anim
+}
+    </script>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+    <div class="book-page page-turn">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="text-center mb-4 text-red-600">
+                    {% for category, message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

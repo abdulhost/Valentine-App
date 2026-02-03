@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="text-center">
+        <h2 class="text-5xl script text-red-900 mb-8">The Big Question</h2>
+        <p class="typewriter text-xl max-w-lg mx-auto">My rasmalai, my laddoo, my absolute babee... Will you be my Valentine? Not just for one day, but let's make every day our next chapter. I've planned the perfect date – everything taken care of (cuisine, restaurant, all the magic). Just tell me your vibe, sweetheart:</p>
+        <form method="POST" class="space-y-4 mt-8 max-w-md mx-auto">
+            <select name="vibe" class="w-full p-2 border border-red-300 rounded">
+                <option>Fancy restaurant with candles and all the romance?</option>
+                <option>Cozy middle non-fancy spot where we can laugh loud?</option>
+                <option>Street food adventure on quiet lanes where no one knows us, just us two exploring?</option>
+            </select>
+            <textarea name="preference" placeholder="Or anything else your heart desires, my love – drop your preference!" class="w-full p-2 border border-red-300 rounded"></textarea>
+            <button type="submit" class="px-8 py-4 bg-red-700 text-white rounded script text-2xl" onclick="confetti()">YES, MY LOVE!</button>
+        </form>
+        <p class="mt-4">If 'maybe', I'll bribe you with more book puns!</p>
+        <p class="mt-8">The end... or just the beginning? Love forever, your [Your Name]. P.S. Text me your date vibe, sweetheart – I'm counting the pages till then!</p>
+    </div>
+{% endblock %}

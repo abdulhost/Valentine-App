@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <div style="background: url('https://www.transparenttextures.com/patterns/bookshelf.png') no-repeat center/cover;" class="p-4 rounded">
+        <h2 class="text-4xl script text-red-800 text-center mb-8">How Our Story Began</h2>
+        <div class="space-y-4 text-lg">
+            <p class="page-turn">Once upon a time, in the bustling streets of [city/place], a clumsy guy met the most beautiful reader ever. Remember our first chat about books? I pretended I knew [her fave author], but really I just wanted to hear your voice, babee.</p>
+            <p class="page-turn">Like that time you caught me highlighting your novel with heart stickers... guilty as charged, sweetheart!</p>
+            <p class="page-turn">Every page since then has been brighter because of you, my absolute laddoo.</p>
+            <!-- Add 2 more memories -->
+            <p onclick="highlightHeart(this)">Click heart to highlight ❤️</p>
+        </div>
+        <p class="text-center mt-8">Turn the page if you're ready for more, rasmalai... I promise the best chapters are ahead!</p>
+        <a href="{{ url_for('chapter2') }}" class="block text-center mt-4 text-xl script text-red-800 hover:underline">Turn Page →</a>
+    </div>
+{% endblock %}

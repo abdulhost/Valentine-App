@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="text-center">
+        <h1 class="text-6xl script text-red-800 mb-6">Our Enchanted Storybook</h1>
+        <p class="typewriter text-xl max-w-lg mx-auto">To my absolute babee, my rasmalai, my laddoo... Sweetheart, I've been writing our story in my heart for so long. Now it's time to turn the pages together. Click 'Open Book' to start our adventure. P.S. Warning: May cause giggles, blushes, and extra cuddles. 💕📖</p>
+        <div class="mt-8 heart-float" title="This book is 100% pun-proof... okay maybe not, but you love my cheesy lines anyway!">❤️</div>
+        <a href="{{ url_for('chapter1') }}" class="mt-10 inline-block px-8 py-4 bg-red-700 text-white rounded script text-2xl hover:bg-red-800">Open Book</a>
+    </div>
+{% endblock %}
