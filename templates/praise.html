@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>You Are Everything 💖</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+<style>
+body {
+  background: linear-gradient(135deg, #fde2e4, #fadadd);
+  font-family: 'Playfair Display', serif;
+  overflow-x: hidden;
+}
+
+/* Praise container */
+.praise-box {
+  max-width: 900px;
+  margin: 60px auto;
+  background: rgba(255,255,255,0.8);
+  border-radius: 28px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+/* Slideshow */
+.slideshow {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+}
+
+.caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+}
+
+/* Floating emojis */
+.emoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 6s infinite ease-in-out;
+  opacity: 0.85;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-140px); opacity: 0; }
+}
+
+/* Date ideas */
+.date-ideas {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.date-ideas li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+/* Slider arrows */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.slider-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.slider-prev { left: 15px; }
+.slider-next { right: 15px; }
+.date-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.date-card {
+  background: rgba(255,255,255,0.9);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.date-card:hover {
+  transform: translateY(-5px);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating praise emojis -->
+<span class="emoji" style="left:10%; top:85%">🥰</span>
+<span class="emoji" style="left:25%; top:90%">💖</span>
+<span class="emoji" style="left:50%; top:88%">😍</span>
+<span class="emoji" style="left:75%; top:92%">✨</span>
+
+<div class="praise-box">
+
+    <h1 class="mb-3 text-danger">This Is Your Tareef Section 💕</h1>
+    <p class="text-muted mb-4">
+      Because you deserve to be reminded…  
+      you are deeply loved, admired, and cherished 💫
+    </p>
+  
+    <!-- 🖼️ SLIDESHOW -->
+    <div class="slideshow mb-4">
+
+        <button class="slider-btn slider-prev" onclick="prevSlide()">❮</button>
+        <button class="slider-btn slider-next" onclick="nextSlide()">❯</button>
+      
+        <div class="slide active">
+          <img src="static/images/IMG-20220712-WA0005.jpg">
+          <div class="caption">You make my world softer 💗</div>
+        </div>
+      
+        <div class="slide">
+          <img src="static/images/IMG-20241011-WA0004.jpg">
+          <div class="caption">Your smile fixes my worst days ✨</div>
+        </div>
+      
+        <div class="slide">
+          <img src="static/images/IMG-20250608-WA0004.jpg">
+          <div class="caption">You’re my calm and my chaos 😌💥 Your Jumkas My Obsession.</div>
+        </div>
+      
+        <div class="slide">
+          <img src="static/images/IMG-20250608-WA0015.jpg">
+          <div class="caption">Every version of you is my favorite 💖</div>
+        </div>
+      
+        <div class="slide">
+          <img src="static/images/IMG-20251109-WA0005.jpg">
+          <div class="caption">I choose you. Always. 💍</div>
+        </div>
+      
+      </div>
+      
+  
+  
+    <h3 class="text-danger mb-3">Our Secret Little Date Ideas 💌</h3>
+
+    <div class="date-cards">
+    
+      <div class="date-card">
+        🎬 <strong>Bridgerton S4 Watch Date</strong><br>
+        Same episode, same time, earphones on, muted laughs 🤭
+      </div>
+    
+      <div class="date-card">
+        🎧 <strong>Low-Volume Playlist Date</strong><br>
+        One earphone each, same song, silent feelings 💕
+      </div>
+    
+      <div class="date-card">
+        📱 <strong>Text-Only Movie Reactions</strong><br>
+        Watch separately, spam texts like “OMG DID YOU SEE THAT?” 😆
+      </div>
+    
+      <div class="date-card">
+        🍜 <strong>Late-Night Snack Date</strong><br>
+        Same snacks, lights off, whispering on call 🌙
+      </div>
+    
+      <div class="date-card">
+        🎮 <strong>Mini Phone Games</strong><br>
+        Ludo, chess, silly quizzes — quiet but competitive 😜
+      </div>
+    
+      <div class="date-card">
+        📖 <strong>Silent Reading Date</strong><br>
+        Same book, same chapter, goodnight text after ✨
+      </div>
+    
+      <div class="date-card">
+        💬 <strong>Secret Voice Notes</strong><br>
+        One voice note each before sleep, headphones only 🥰
+      </div>
+    
+      <div class="date-card">
+        📝 <strong>Future Date Planning</strong><br>
+        Whisper about cafés, trips, and hugs for later 💍
+      </div>
+    
+    </div>
+    
+    <div id="preloader">
+        <iframe 
+          src="{{ url_for('flower') }}" 
+          frameborder="0"
+          scrolling="no">
+        </iframe>
+      </div>
+  </div>
+  
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function showSlide(i) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[i].classList.add("active");
+}
+
+function nextSlide() {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+}
+
+function prevSlide() {
+  index = (index - 1 + slides.length) % slides.length;
+  showSlide(index);
+}
+
+setInterval(nextSlide, 3500);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Okay… I’m Sorry 😅</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  background: linear-gradient(135deg, #fff3c4, #ffd6a5);
+  font-family: 'Comic Neue', cursive;
+  overflow-x: hidden;
+}
+
+/* Fullscreen video section */
+.fullscreen-video {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Video */
+video {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+}
+
+/* Play button overlay */
+.play-btn {
+  position: absolute;
+  top: 30px;
+  left: 10%;
+  transform: translateX(-50%);
+  z-index: 10;
+  font-size: 1.4rem;
+  padding: 12px 24px;
+}
+
+/* Floating emojis */
+.emoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: floatUp 6s infinite ease-in-out;
+  opacity: 0.8;
+  z-index: 5;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-120px); opacity: 0; }
+}
+
+/* Diagonal sorry */
+.sorry {
+  position: absolute;
+  bottom: 40px;
+  right: -50px;
+  transform: rotate(-20deg);
+  font-size: 3rem;
+  color: rgba(255,0,0,0.7);
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* Bottom card */
+.card-fun {
+  background: rgba(255,255,255,0.85);
+  border-radius: 24px;
+  padding: 30px;
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: center;<!-- Diagonal sorry -->
+  <div class="sorry">SORRY SORRY 😭</div>
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+.reaction-box {
+  max-width: 320px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.9);
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.reaction-img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.reaction-text {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating emojis -->
+<span class="emoji" style="left:10%; top:80%">😂</span>
+<span class="emoji" style="left:40%; top:85%">🙈</span>
+<span class="emoji" style="left:70%; top:90%">🤣</span>
+
+<!-- 🎬 FULLSCREEN VIDEO -->
+<div class="fullscreen-video">
+
+  <!-- Hidden audio (song tab gone) -->
+  <audio id="funnyAudio">
+    <source src="static/music/gulab-jaisan-khilal-badu-mr-jatin_BflAdSK4.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Video (muted) -->
+  <video id="funnyVideo" muted>
+    <source src="static/images/VID-20200629-WA0008.mp4" type="video/mp4">
+  </video>
+
+  <!-- Play button -->
+  <button class="btn btn-success play-btn" onclick="togglePlay()">
+    ▶️ Play
+  </button>
+
+  
+
+</div>
+
+<div class="reaction-box text-center my-4">
+  <img 
+    src="static/images/IMG_20251112_173831.jpg" 
+    alt="Funny reaction"
+    class="reaction-img"
+  >
+  <p class="reaction-text mt-3">
+    Your face when that subtitle hits a little too close 🤪😂
+  </p>
+</div>
+
+<!-- Bottom content stays -->
+<div class="card-fun">
+  <h2>Okay Okay… Don’t Be Mad 😅</h2>
+  <p class="text-muted">
+    I muted the video… but the drama is still loud 🤪
+  </p>
+
+  <a href="/praise" class="btn btn-warning px-4">
+    Fine… Go to Praise 😌👉
+  </a>
+</div>
+
+<script>
+const audio = document.getElementById("funnyAudio");
+const video = document.getElementById("funnyVideo");
+let playing = false;
+
+function togglePlay() {
+  if (!playing) {
+    audio.currentTime = 0;
+    video.currentTime = 0;
+    audio.play();
+    video.play();
+    playing = true;
+  } else {
+    audio.pause();
+    video.pause();
+    playing = false;
+  }
+}
+</script>
+
+</body>
+</html>

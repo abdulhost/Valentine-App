@@ -2,36 +2,196 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Love Promises 💗</title>
+<title>Love Letter 💌</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 <style>
-body { background: linear-gradient(135deg,#ffe6f0 0%,#ffd6e0 100%); font-family:'Playfair Display', serif; overflow:hidden;}
-.book { background: rgba(255,255,255,0.4); backdrop-filter: blur(12px); border-radius:24px; box-shadow:0 20px 40px rgba(255,192,203,0.4); padding:50px 40px; max-width:520px; text-align:center; position:relative; animation:pageFlip 1.5s ease forwards; }
-@keyframes pageFlip{0%{transform:rotateY(90deg);opacity:0;}60%{transform:rotateY(-20deg);opacity:1;}100%{transform:rotateY(0deg);opacity:1;}}
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffe6f0 0%, #ffd6e0 100%);
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    flex-direction: column;
+  }
+
+  .envelope-wrapper {
+    position: relative;
+    width: 80vw; /* 80% of screen width */
+    max-width: 800px;
+    height: calc(80vw * 0.6); /* proportional height */
+    max-height: 500px;
+  }
+
+  /* Envelope body */
+  .envelope {
+    width: 100%;
+    height: 100%;
+    background: #ffccd5;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+  }
+
+  /* Envelope flap */
+  .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #ff99b3;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    transition: transform 1s ease;
+    z-index: 2;
+  }
+
+  .envelope.open .flap {
+    transform: rotateX(-180deg);
+  }
+
+  /* Letter */
+  .letter {
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    background: rgba(255,255,255,0.95);
+    top: 10%;
+    left: 5%;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #d63384;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(100%);
+    transition: transform 1s ease, opacity 1s ease;
+    opacity: 0;
+    z-index: 1;
+    overflow-y: auto; /* scrollable if content too long */
+  }
+
+  .envelope.open .letter {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Open button inside envelope */
+  .open-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
+
+  .open-btn button {
+    background-color: #d63384;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .open-btn button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  /* Next button, hidden initially */
+  .next-btn {
+    margin-top: 20px;
+    display: none;
+  }
+
+  .next-btn a {
+    background-color: #d63384;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .next-btn a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  /* Make letter text scrollable nicely */
+  .letter::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .letter::-webkit-scrollbar-thumb {
+    background-color: #d63384;
+    border-radius: 4px;
+  }
+
+  .letter::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+  }
+
 </style>
 </head>
 <body>
 
-<img src="static/images/rose2.png" class="float" style="top:50px; left:40px; width:40px;">
-<img src="static/images/heart2.png" class="float" style="top:200px; right:100px; width:35px;">
+<div class="envelope-wrapper">
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
 
-<div class="vw-100 vh-100 d-flex align-items-center justify-content-center position-relative">
-  <div class="book">
-    <h2 class="text-danger mb-3">My Little Love Promises 💗</h2>
-    <ul class="text-secondary mb-4" style="font-size:1.2rem; list-style:none; padding:0;">
-      <li class="mb-2">🌸 I promise to always make you smile</li>
-      <li class="mb-2">💖 I promise to be your safe place</li>
-      <li class="mb-2">✨ I promise to create happy memories with you</li>
-      <li class="mb-2">🌷 I promise to cherish every moment together</li>
-      <li class="mb-2">💞 I promise to surprise you with little joys</li>
-    </ul>
-    <div class="d-flex justify-content-between">
-      <a href="quiz.html" class="btn btn-danger">Previous</a>
-      <a href="final.html" class="btn btn-danger">Next</a>
+    <div class="letter">
+      My Dearest Love 💖,<br><br>
+      Every heartbeat whispers your name. I promise to fill your days with laughter, your nights with comfort, and your heart with endless love. You are my sweetest joy, my forever. 🌸<br><br>
+      I will always be there to hold your hand, wipe your tears, and make sure your smile never fades. Life is beautiful because of you, and I treasure every little moment we share. From morning coffee to evening stargazing, you are my heart, my soul, my everything. 💞<br>
+      My Baebey I,m all yours , and pardon me if mistakes or not apt love letter , beacuse i am writing this for the very first time in my entire life time.     <br>
+
+      Trust me when i say I Love You, you are my love, always will be , and being away from you have tought me that you are the other half part of my life that completes me. So Thank You for being in my life i appreaciate all your efforts you do everything best, and I love you for everything , and i am sorry for making you angry and sometimes troubling you but i like it.
+     <br>
+
+      <br>
+      Always your Baccha,<br>
+      💗
+    </div>
+
+    <!-- Open button inside envelope -->
+    <div class="open-btn" id="openBtnWrapper">
+      <button id="openBtn">Open 💌</button>
     </div>
   </div>
 </div>
+
+<!-- Next button, appears after opening -->
+<div class="next-btn" id="nextBtn">
+  <a href="/final">Next 💖</a>
+</div>
+
+<script>
+  const envelope = document.getElementById('envelope');
+  const openBtn = document.getElementById('openBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  openBtn.addEventListener('click', () => {
+    envelope.classList.add('open');
+    // Hide open button after click
+    document.getElementById('openBtnWrapper').style.display = 'none';
+    // Show next button after envelope opens
+    nextBtn.style.display = 'block';
+  });
+</script>
 
 </body>
 </html>

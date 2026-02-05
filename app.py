@@ -13,14 +13,17 @@ def memories():
     return render_template("memories.html")
 
 # Quiz page
-@app.route("/quiz")
+@app.route("/playful")
 def quiz():
-    return render_template("quiz.html")
+    return render_template("playful.html")
 
 # Promises page
 @app.route("/promises")
 def promises():
     return render_template("promises.html")
+@app.route("/praise")
+def praise():
+    return render_template("praise.html")
 
 # Final page
 @app.route("/final")
@@ -35,3 +38,4 @@ def flower():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    #  app.run(host="0.0.0.0", port=5000)
